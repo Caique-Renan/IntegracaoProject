@@ -1,4 +1,4 @@
-package Services;
+package br.com.project.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import Repository.UsuarioRepository;
-import domain.Usuario;
+import br.com.project.domain.UsuarioEntity;
+import br.com.project.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
@@ -16,16 +16,16 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	public List<Usuario> buscarTodas() {
+	public List<UsuarioEntity> buscarTodas() {
 		return usuarioRepository.findAll();
 	}
 
-	public Usuario salvarUsuario(Usuario usuario) {
+	public UsuarioEntity salvarUsuario(UsuarioEntity usuario) {
 		usuario.setIdUsuario(null);
 		return usuarioRepository.save(usuario);
 	}
 
-	public Optional<Usuario> BuscarUm(Long id) {
+	public Optional<UsuarioEntity> BuscarUm(Long id) {
 		return usuarioRepository.findById(id);
 	}
 
@@ -33,7 +33,7 @@ public class UsuarioService {
 		usuarioRepository.deleteById(id);
 	}
 
-	public void atualizar(@RequestBody Usuario usuario, Long id) {
+	public void atualizar(@RequestBody UsuarioEntity usuario, Long id) {
 		verificarExistencia(usuario.getIdUsuario());
 		usuarioRepository.save(usuario);
 	}

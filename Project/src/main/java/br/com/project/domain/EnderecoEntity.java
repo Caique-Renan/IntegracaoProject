@@ -1,4 +1,4 @@
-package domain;
+package br.com.project.domain;
 
 import java.util.Optional;
 
@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Endereco {
+public class EnderecoEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,7 +34,7 @@ public class Endereco {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario")
 	@JsonIgnore
-	private Optional<Usuario> usuario;
+	private Optional<UsuarioEntity> usuario;
 
 	public Long getIdEndereco() {
 		return idEndereco;
@@ -92,11 +92,11 @@ public class Endereco {
 		CEPEndereco = cEPEndereco;
 	}
 
-	public Optional<Usuario> getUsuario() {
+	public Optional<UsuarioEntity> getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Optional<Usuario> usuario2, Optional<Usuario> usuario) {
+	public void setUsuario(Optional<UsuarioEntity> usuario2, Optional<UsuarioEntity> usuario) {
 		this.usuario = usuario;
 	}
 
