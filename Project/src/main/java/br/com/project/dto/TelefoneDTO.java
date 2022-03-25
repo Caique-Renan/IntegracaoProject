@@ -1,9 +1,5 @@
 package br.com.project.dto;
 
-import java.util.Optional;
-
-import br.com.project.domain.UsuarioEntity;
-
 public class TelefoneDTO {
 
 	private Long idTelefone;
@@ -12,7 +8,7 @@ public class TelefoneDTO {
 
 	private Integer telefoneTelefone;
 
-	private Optional<UsuarioEntity> usuario;
+	private UsuarioDTO usuarioDTO;
 
 	public Long getIdTelefone() {
 		return idTelefone;
@@ -38,12 +34,12 @@ public class TelefoneDTO {
 		this.telefoneTelefone = telefoneTelefone;
 	}
 
-	public Optional<UsuarioEntity> getUsuario() {
-		return usuario;
+	public UsuarioDTO getUsuario() {
+		return usuarioDTO;
 	}
 
-	public void setUsuario(Optional<UsuarioEntity> usuario) {
-		this.usuario = usuario;
+	public void setUsuario(UsuarioDTO usuario) {
+		this.usuarioDTO = usuario;
 	}
 
 }

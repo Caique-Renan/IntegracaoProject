@@ -1,7 +1,6 @@
 package br.com.project.domain;
 
-import java.util.Optional;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,16 +16,19 @@ public class TelefoneEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_TELEFONE")
 	private Long idTelefone;
 
+	@Column(name = "CELULAR_TELEFONE")
 	private Integer celularTelefone;
 
+	@Column(name = "TELEFONE_TELEFONE")
 	private Integer telefoneTelefone;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_usuario")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ID_USUARIO")
 	@JsonIgnore
-	private Optional<UsuarioEntity> usuario;
+	private UsuarioEntity usuario;
 
 	public Long getIdTelefone() {
 		return idTelefone;
@@ -50,6 +52,14 @@ public class TelefoneEntity {
 
 	public void setTelefoneTelefone(Integer telefoneTelefone) {
 		this.telefoneTelefone = telefoneTelefone;
+	}
+
+	public UsuarioEntity getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioEntity usuario) {
+		this.usuario = usuario;
 	}
 
 }
