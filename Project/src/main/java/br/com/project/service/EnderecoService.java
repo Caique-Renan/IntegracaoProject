@@ -7,20 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.project.domain.EnderecoEntity;
-import br.com.project.domain.UsuarioEntity;
 import br.com.project.dto.EnderecoDTO;
 import br.com.project.dto.UsuarioDTO;
 import br.com.project.repository.EnderecoRepository;
-import br.com.project.repository.UsuarioRepository;
 
 @Service
 public class EnderecoService {
 
 	@Autowired
 	private EnderecoRepository enderecoRepository;
-
-	@Autowired
-	private UsuarioRepository usuarioRepository;
 
 	@Autowired
 	private UsuarioService usuarioService;
@@ -52,6 +47,25 @@ public class EnderecoService {
 		}
 
 		return enderecoDTOList;
+	}
+
+	public EnderecoDTO BuscarUmEndereco(Long id) {
+		EnderecoEntity enderecoEntity = new EnderecoEntity();
+		EnderecoDTO enderecoDTO = new EnderecoDTO();
+		enderecoEntity = enderecoRepository.getById(id);
+		UsuarioDTO usuarioDTORecuperado = new UsuarioDTO();
+		usuarioDTORecuperado = usuarioService.BuscarUm(id);
+		enderecoDTO.setBairroEndereco(enderecoEntity.getBairroEndereco());
+		enderecoDTO.setCEPEndereco(enderecoEntity.getCEPEndereco());
+		enderecoDTO.setCidadeEndereco(enderecoEntity.getCidadeEndereco());
+		enderecoDTO.setEstadoEndereco(enderecoEntity.getEstadoEndereco());
+		enderecoDTO.setIdEndereco(enderecoEntity.getIdEndereco());
+		enderecoDTO.setNumeroendereco(enderecoEntity.getNumeroendereco());
+		enderecoDTO.setRuaEndereco(enderecoEntity.getRuaEndereco());
+		enderecoDTO.setUsuarioDTO(usuarioDTORecuperado);
+
+		return enderecoDTO;
+
 	}
 
 }

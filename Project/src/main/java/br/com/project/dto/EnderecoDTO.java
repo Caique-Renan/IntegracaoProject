@@ -18,6 +18,17 @@ public class EnderecoDTO {
 
 	private UsuarioDTO usuarioDTO;
 
+	@Override
+	public String toString() {
+		return String.format(
+				"EnderecoDTO [idEndereco=%s, ruaEndereco=%s, numeroendereco=%s, "
+				+ "bairroEndereco=%s, cidadeEndereco=%s, estadoEndereco=%s, "
+				+ "CEPEndereco=%s, usuarioDTO=%s]",
+				idEndereco, ruaEndereco, numeroendereco, bairroEndereco, cidadeEndereco, 
+				estadoEndereco, CEPEndereco,
+				usuarioDTO);
+	}
+
 	public Long getIdEndereco() {
 		return idEndereco;
 	}

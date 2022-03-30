@@ -23,11 +23,23 @@ public class UsuarioDTO {
 
 	private String maeUsuario;
 
+
 	private String paiUsuario;
 
 	private List<EnderecoEntity> endereco;
 
 	private List<TelefoneEntity> telefone;
+	
+	@Override
+	public String toString() {
+		return String.format(
+				"UsuarioDTO [idUsuario=%s, nomeUsuario=%s, idadeUsuario=%s, emailUsuario=%s, "
+						+ "CPFUsuario=%s, generoUsuario=%s, signoUsuario=%s, maeUsuario=%s, paiUsuario=%s, "
+						+ "endereco=%s, telefone=%s]",
+						idUsuario, nomeUsuario, idadeUsuario, emailUsuario, CPFUsuario, generoUsuario, 
+						signoUsuario, maeUsuario,
+						paiUsuario, endereco, telefone);
+	}
 
 	public Long getIdUsuario() {
 		return idUsuario;

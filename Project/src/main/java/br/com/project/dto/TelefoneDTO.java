@@ -6,6 +6,13 @@ public class TelefoneDTO {
 
 	private Integer celularTelefone;
 
+	@Override
+	public String toString() {
+		return String.format("TelefoneDTO [idTelefone=%s, celularTelefone=%s, " 
+	+ "telefoneTelefone=%s, usuarioDTO=%s]",
+				idTelefone, celularTelefone, telefoneTelefone, usuarioDTO);
+	}
+
 	private Integer telefoneTelefone;
 
 	private UsuarioDTO usuarioDTO;

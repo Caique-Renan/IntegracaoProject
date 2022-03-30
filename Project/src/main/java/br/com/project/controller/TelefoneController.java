@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.project.domain.TelefoneEntity;
+import br.com.project.dto.TelefoneDTO;
 import br.com.project.service.TelefoneService;
 
 @RestController
@@ -22,8 +23,8 @@ public class TelefoneController {
 	
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<TelefoneEntity>> lsitar (){
-		return ResponseEntity.status(HttpStatus.OK).body(telefoneService.listar());
+	public ResponseEntity<List<TelefoneDTO>> listar (){
+		return ResponseEntity.status(HttpStatus.OK).body(telefoneService.listarTelefones());
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)

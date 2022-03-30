@@ -98,12 +98,12 @@ public class EnderecoEntity {
 		CEPEndereco = cEPEndereco;
 	}
 
-	public UsuarioEntity getidUsuario() {
+	public UsuarioEntity getUsuarioEntity() {
 		return usuarioEntity;
 	}
 
-	public void setidUsuario(UsuarioEntity idUsuario) {
-		this.usuarioEntity = idUsuario;
+	public void setUsuarioEntity(UsuarioEntity usuarioEntity) {
+		this.usuarioEntity = usuarioEntity;
 	}
 
 }
