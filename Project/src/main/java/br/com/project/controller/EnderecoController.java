@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.project.domain.EnderecoEntity;
+import br.com.project.dto.EnderecoDTO;
 import br.com.project.service.EnderecoService;
 
 public class EnderecoController {
@@ -23,9 +24,9 @@ public class EnderecoController {
 		enderecoService.salvarEndereco(usuarioId, endereco);
 	}
 
-	@RequestMapping(value = "/{id}/endereco", method = RequestMethod.GET)
-	public ResponseEntity<List<EnderecoEntity>> listarEndereco(@PathVariable("id") Long usuarioId) {
-		List<EnderecoEntity> enderecos = enderecoService.listarEnderecos(usuarioId);
+	@RequestMapping(value = "endereco/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<EnderecoDTO>> listarEndereco(@PathVariable("id") Long usuarioId) {
+		List<EnderecoDTO> enderecos = enderecoService.listarEnderecos(usuarioId);
 
 		return ResponseEntity.status(HttpStatus.OK).body(enderecos);
 	}

@@ -1,7 +1,6 @@
 package br.com.project.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.project.domain.UsuarioEntity;
+import br.com.project.dto.UsuarioDTO;
 import br.com.project.service.UsuarioService;
 
 @RestController
@@ -23,7 +23,7 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<UsuarioEntity>> buscador(UsuarioEntity usuario) {
+	public ResponseEntity<List<UsuarioDTO>> buscarTodosUsuarios(UsuarioEntity usuario) {
 		return ResponseEntity.status(HttpStatus.OK).body(usuarioService.buscarTodas());
 	}
 
@@ -33,8 +33,8 @@ public class UsuarioController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> busca(@PathVariable("/id") Long id) {
-		Optional<UsuarioEntity> usuario = usuarioService.BuscarUm(id);
+	public ResponseEntity<?> busca(@PathVariable("id") Long id) {
+		UsuarioDTO usuario = usuarioService.BuscarUm(id);
 		if (usuario == null) {
 			return ResponseEntity.notFound().build();
 		}

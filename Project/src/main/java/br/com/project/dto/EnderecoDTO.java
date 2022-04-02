@@ -1,9 +1,5 @@
 package br.com.project.dto;
 
-import java.util.Optional;
-
-import br.com.project.domain.UsuarioEntity;
-
 public class EnderecoDTO {
 
 	private Long idEndereco;
@@ -20,7 +16,18 @@ public class EnderecoDTO {
 
 	private Integer CEPEndereco;
 
-	private Optional<UsuarioEntity> usuario;
+	private UsuarioDTO usuarioDTO;
+
+	@Override
+	public String toString() {
+		return String.format(
+				"EnderecoDTO [idEndereco=%s, ruaEndereco=%s, numeroendereco=%s, "
+				+ "bairroEndereco=%s, cidadeEndereco=%s, estadoEndereco=%s, "
+				+ "CEPEndereco=%s, usuarioDTO=%s]",
+				idEndereco, ruaEndereco, numeroendereco, bairroEndereco, cidadeEndereco, 
+				estadoEndereco, CEPEndereco,
+				usuarioDTO);
+	}
 
 	public Long getIdEndereco() {
 		return idEndereco;
@@ -78,12 +85,12 @@ public class EnderecoDTO {
 		CEPEndereco = cEPEndereco;
 	}
 
-	public Optional<UsuarioEntity> getUsuario() {
-		return usuario;
+	public UsuarioDTO getUsuarioDTO() {
+		return usuarioDTO;
 	}
 
-	public void setUsuario(Optional<UsuarioEntity> usuario) {
-		this.usuario = usuario;
+	public void setUsuarioDTO(UsuarioDTO usuarioDTO) {
+		this.usuarioDTO = usuarioDTO;
 	}
 
 }

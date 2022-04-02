@@ -1,18 +1,21 @@
 package br.com.project.dto;
 
-import java.util.Optional;
-
-import br.com.project.domain.UsuarioEntity;
-
 public class TelefoneDTO {
 
 	private Long idTelefone;
 
 	private Integer celularTelefone;
 
+	@Override
+	public String toString() {
+		return String.format("TelefoneDTO [idTelefone=%s, celularTelefone=%s, " 
+	+ "telefoneTelefone=%s, usuarioDTO=%s]",
+				idTelefone, celularTelefone, telefoneTelefone, usuarioDTO);
+	}
+
 	private Integer telefoneTelefone;
 
-	private Optional<UsuarioEntity> usuario;
+	private UsuarioDTO usuarioDTO;
 
 	public Long getIdTelefone() {
 		return idTelefone;
@@ -38,12 +41,12 @@ public class TelefoneDTO {
 		this.telefoneTelefone = telefoneTelefone;
 	}
 
-	public Optional<UsuarioEntity> getUsuario() {
-		return usuario;
+	public UsuarioDTO getUsuario() {
+		return usuarioDTO;
 	}
 
-	public void setUsuario(Optional<UsuarioEntity> usuario) {
-		this.usuario = usuario;
+	public void setUsuario(UsuarioDTO usuario) {
+		this.usuarioDTO = usuario;
 	}
 
 }

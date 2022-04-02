@@ -19,12 +19,10 @@ public class UsuarioService {
 
 //	metodo publico que retorna uma lista de usuario dto, de nome "buscarTodas" não recebe parâmetros
 	public List<UsuarioDTO> buscarTodas() {
-
 // Um find all dentro de usuario Repository, onde retorna uma lista de usuario Entity
 		List<UsuarioEntity> usuarioEntityLista = usuarioRepository.findAll();
 //	Criacao de lista de usuarioDTO
 		List<UsuarioDTO> usuarioDTOList = new ArrayList<>();
-
 //	Começo do laço for onde será percorrido cada item da lista de usuarioEntity
 		for (UsuarioEntity usuarioEntity : usuarioEntityLista) {
 //	criar uma instancia de usuarioDTO
@@ -43,7 +41,6 @@ public class UsuarioService {
 			usuarioDTO.setGeneroUsuario(usuarioEntity.getGeneroUsuario());
 //	usuarioDTO adicionado a lista de usuarioDTO
 			usuarioDTOList.add(usuarioDTO);
-
 		}
 //	Retorno do método.
 		return usuarioDTOList;
@@ -83,12 +80,7 @@ public class UsuarioService {
 	}
 
 	public void atualizar(@RequestBody UsuarioEntity usuario, Long id) {
-		verificarExistencia(usuario.getIdUsuario());
 		usuarioRepository.save(usuario);
-	}
-
-	private void verificarExistencia(Long id) {
-		BuscarUm(id);
 	}
 
 }

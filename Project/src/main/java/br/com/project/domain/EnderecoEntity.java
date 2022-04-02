@@ -1,7 +1,6 @@
 package br.com.project.domain;
 
-import java.util.Optional;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,32 +8,52 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "TB_ENDERECO")
 public class EnderecoEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID_ENDERECO")
 	private Long idEndereco;
 
+	@Column(name = "RUA_ENDERECO")
 	private String ruaEndereco;
 
+	@Column(name = "NUMERO_ENDERECO")
 	private Integer numeroendereco;
 
+	@Column(name = "BAIRRO_ENDERECO")
 	private String bairroEndereco;
 
+	@Column(name = "CIDADE_ENDERECO")
 	private String cidadeEndereco;
 
+	@Column(name = "ESTADO_ENDERECO")
 	private String estadoEndereco;
 
+	@Column(name = "CEP_ENDERECO")
 	private Integer CEPEndereco;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_usuario")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ID_USUARIO")
 	@JsonIgnore
-	private Optional<UsuarioEntity> usuario;
+	private UsuarioEntity usuarioEntity;
+
+	@Override
+	public String toString() {
+		return String.format(
+				"EnderecoEntity [idEndereco=%s, ruaEndereco=%s, numeroendereco=%s, "
+				+ "bairroEndereco=%s, cidadeEndereco=%s, estadoEndereco=%s, CEPEndereco=%s, "
+				+ "usuarioEntity=%s]",
+				idEndereco, ruaEndereco, numeroendereco, bairroEndereco, cidadeEndereco, 
+				estadoEndereco, CEPEndereco,
+				usuarioEntity);
+	}
 
 	public Long getIdEndereco() {
 		return idEndereco;
@@ -92,12 +111,12 @@ public class EnderecoEntity {
 		CEPEndereco = cEPEndereco;
 	}
 
-	public Optional<UsuarioEntity> getUsuario() {
-		return usuario;
+	public UsuarioEntity getUsuarioEntity() {
+		return usuarioEntity;
 	}
 
-	public void setUsuario(Optional<UsuarioEntity> usuario2, Optional<UsuarioEntity> usuario) {
-		this.usuario = usuario;
+	public void setUsuarioEntity(UsuarioEntity usuarioEntity) {
+		this.usuarioEntity = usuarioEntity;
 	}
 
 }
