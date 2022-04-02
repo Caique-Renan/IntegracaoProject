@@ -8,10 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "TB_ENDERECO")
 public class EnderecoEntity {
 
 	@Id
@@ -41,6 +43,17 @@ public class EnderecoEntity {
 	@JoinColumn(name = "ID_USUARIO")
 	@JsonIgnore
 	private UsuarioEntity usuarioEntity;
+
+	@Override
+	public String toString() {
+		return String.format(
+				"EnderecoEntity [idEndereco=%s, ruaEndereco=%s, numeroendereco=%s, "
+				+ "bairroEndereco=%s, cidadeEndereco=%s, estadoEndereco=%s, CEPEndereco=%s, "
+				+ "usuarioEntity=%s]",
+				idEndereco, ruaEndereco, numeroendereco, bairroEndereco, cidadeEndereco, 
+				estadoEndereco, CEPEndereco,
+				usuarioEntity);
+	}
 
 	public Long getIdEndereco() {
 		return idEndereco;

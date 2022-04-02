@@ -21,10 +21,6 @@ public class EnderecoService {
 	private UsuarioService usuarioService;
 
 	public EnderecoEntity salvarEndereco(Long usuarioId, EnderecoEntity endereco) {
-//		Optional<UsuarioEntity> usuario = usuarioService.BuscarUm(usuarioId);
-//
-//		endereco.setUsuario(usuario, usuario);
-
 		return enderecoRepository.save(endereco);
 	}
 

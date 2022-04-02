@@ -24,7 +24,7 @@ public class EnderecoController {
 		enderecoService.salvarEndereco(usuarioId, endereco);
 	}
 
-	@RequestMapping(value = "/{id}/endereco", method = RequestMethod.GET)
+	@RequestMapping(value = "endereco/{id}", method = RequestMethod.GET)
 	public ResponseEntity<List<EnderecoDTO>> listarEndereco(@PathVariable("id") Long usuarioId) {
 		List<EnderecoDTO> enderecos = enderecoService.listarEnderecos(usuarioId);
 

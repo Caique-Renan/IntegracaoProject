@@ -9,11 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
+@Table(name = "TB_USUARIO")
 public class UsuarioEntity {
 
 	@JsonInclude(Include.NON_NULL)
@@ -63,6 +65,16 @@ public class UsuarioEntity {
 	@OneToMany
 	@JoinColumn(name = "ID_USUARIO")
 	private List<TelefoneEntity> telefone;
+
+	@Override
+	public String toString() {
+		return String.format(
+				"UsuarioEntity [idUsuario=%s, nomeUsuario=%s, idadeUsuario=%s, emailUsuario=%s, "
+						+ "CPFUsuario=%s, generoUsuario=%s, signoUsuario=%s, maeUsuario=%s, paiUsuario=%s, "
+						+ "endereco=%s, telefone=%s]",
+				idUsuario, nomeUsuario, idadeUsuario, emailUsuario, CPFUsuario, generoUsuario, signoUsuario, maeUsuario,
+				paiUsuario, endereco, telefone);
+	}
 
 	public Long getIdUsuario() {
 		return idUsuario;

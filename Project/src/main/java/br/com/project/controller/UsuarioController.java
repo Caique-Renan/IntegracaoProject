@@ -23,7 +23,7 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<UsuarioDTO>> buscador(UsuarioEntity usuario) {
+	public ResponseEntity<List<UsuarioDTO>> buscarTodosUsuarios(UsuarioEntity usuario) {
 		return ResponseEntity.status(HttpStatus.OK).body(usuarioService.buscarTodas());
 	}
 
@@ -33,7 +33,7 @@ public class UsuarioController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> busca(@PathVariable("/id") Long id) {
+	public ResponseEntity<?> busca(@PathVariable("id") Long id) {
 		UsuarioDTO usuario = usuarioService.BuscarUm(id);
 		if (usuario == null) {
 			return ResponseEntity.notFound().build();

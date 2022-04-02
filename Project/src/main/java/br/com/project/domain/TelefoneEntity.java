@@ -8,10 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "TB_TELEFONE")
 public class TelefoneEntity {
 
 	@Id
@@ -29,6 +31,13 @@ public class TelefoneEntity {
 	@JoinColumn(name = "ID_USUARIO")
 	@JsonIgnore
 	private UsuarioEntity usuario;
+
+	@Override
+	public String toString() {
+		return String.format("TelefoneEntity [idTelefone=%s, celularTelefone=%s, "
+				+ "telefoneTelefone=%s, usuario=%s]",
+				idTelefone, celularTelefone, telefoneTelefone, usuario);
+	}
 
 	public Long getIdTelefone() {
 		return idTelefone;
