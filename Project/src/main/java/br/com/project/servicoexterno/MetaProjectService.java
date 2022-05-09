@@ -1,27 +1,33 @@
 package br.com.project.servicoexterno;
 
-import java.io.IOException;
-import java.net.http.HttpClient;
+import java.io.Serializable;
 
-import javax.tools.JavaFileManager.Location;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
+import br.com.project.dto.ViaCEPDTO;
 
-@Component
 public class MetaProjectService {
-	
-	private static final Logger LOG = LoggerFactory.getLogger(MetaProjectService.class);
-	
-	public Location getWOEId(Integer CEPEndereco) throws IOException{
-		
-		HttpClient client = HttpClientBuilder.create().build();
-		HttpGet request = new HttpGet(
-				"https://www.findcep.com/docs/index.html#/API%20CEP" + CEPEndereco);
-		request.setHeader("Contenty-Type", String.valueOf(MediaType.APPLICATION_JSON_UTF8));
-		return null;
-	}
 
+	
+
+//	public ViaCEPDTO buscaCEP() {
+//
+//		String url = "http://viacep.com.br/ws/05075030/json/";
+//
+//		ViaCEPDTO forObject = restTemplate.getForObject(url, ViaCEPDTO.class);
+//		
+//		return forObject;
+//
+//	}
+
+	public class ViaCepCtrl implements Serializable {
+	private static final long serialVersionUID = 6046704732666502085L;
+
+		public ResponseEntity<ViaCEPDTO> doObterCep(@PathVariable(name = "cep") String cep) {
+
+		    return null;
+		  }
+
+		}
 }

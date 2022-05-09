@@ -1,6 +1,10 @@
 package br.com.project.dto;
 
-public class EnderecoDTO {
+import java.io.Serializable;
+
+public class ViaCEPDTO implements Serializable{
+	
+	private static final long serialVersionUID = 7309680245862563917L;
 
 	private Long idEndereco;
 
@@ -23,16 +27,6 @@ public class EnderecoDTO {
 	private String ddd;
 
 	private String siafi;
-
-	private UsuarioDTO usuarioDTO;
-
-	@Override
-	public String toString() {
-		return String.format(
-				"EnderecoDTO [idEndereco=%s, cep=%s, logradouro=%s, complemento=%s, bairro=%s, "
-						+ "localidade=%s, uf=%s, ibge=%s, gia=%s, ddd=%s, siafi=%s, usuarioDTO=%s]",
-				idEndereco, cep, logradouro, complemento, bairro, localidade, uf, ibge, gia, ddd, siafi, usuarioDTO);
-	}
 
 	public Long getIdEndereco() {
 		return idEndereco;
@@ -120,14 +114,6 @@ public class EnderecoDTO {
 
 	public void setSiafi(String siafi) {
 		this.siafi = siafi;
-	}
-
-	public UsuarioDTO getUsuarioDTO() {
-		return usuarioDTO;
-	}
-
-	public void setUsuarioDTO(UsuarioDTO usuarioDTO) {
-		this.usuarioDTO = usuarioDTO;
 	}
 
 }

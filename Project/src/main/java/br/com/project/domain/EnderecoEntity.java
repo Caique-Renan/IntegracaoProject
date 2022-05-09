@@ -17,41 +17,56 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class EnderecoEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_ENDERECO")
 	private Long idEndereco;
 
-	@Column(name = "RUA_ENDERECO")
-	private String ruaEndereco;
+	@Column(name = "cep")
+	private String cep;
 
-	@Column(name = "NUMERO_ENDERECO")
-	private Integer numeroendereco;
+	@Column(name = "numero")
+	private Integer numero;
 
-	@Column(name = "BAIRRO_ENDERECO")
-	private String bairroEndereco;
+	@Column(name = "logradouro")
+	private String logradouro;
 
-	@Column(name = "CIDADE_ENDERECO")
-	private String cidadeEndereco;
+	@Column(name = "complemento")
+	private String complemento;
 
-	@Column(name = "ESTADO_ENDERECO")
-	private String estadoEndereco;
+	@Column(name = "bairro")
+	private String bairro;
 
-	@Column(name = "CEP_ENDERECO")
-	private Integer CEPEndereco;
+	@Column(name = "localidade")
+	private String localidade;
+
+	@Column(name = "uf")
+	private String uf;
+
+	@Column(name = "ibge")
+	private String ibge;
+
+	@Column(name = "gia")
+	private String gia;
+
+	@Column(name = "ddd")
+	private String ddd;
+
+	@Column(name = "siafi")
+	private String siafi;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_USUARIO")
 	@JsonIgnore
 	private UsuarioEntity usuarioEntity;
+	
+	
 
 	@Override
 	public String toString() {
 		return String.format(
-				"EnderecoEntity [idEndereco=%s, ruaEndereco=%s, numeroendereco=%s, "
-				+ "bairroEndereco=%s, cidadeEndereco=%s, estadoEndereco=%s, CEPEndereco=%s, "
-				+ "usuarioEntity=%s]",
-				idEndereco, ruaEndereco, numeroendereco, bairroEndereco, cidadeEndereco, 
-				estadoEndereco, CEPEndereco,
+				"EnderecoEntity [idEndereco=%s, cep=%s, numero=%s, logradouro=%s, complemento=%s, bairro=%s,"
+				+ " localidade=%s, uf=%s, ibge=%s, gia=%s, ddd=%s, siafi=%s, usuarioEntity=%s]",
+				idEndereco, cep, numero, logradouro, complemento, bairro, localidade, uf, ibge, gia, ddd, siafi,
 				usuarioEntity);
 	}
 
@@ -63,52 +78,92 @@ public class EnderecoEntity {
 		this.idEndereco = idEndereco;
 	}
 
-	public String getRuaEndereco() {
-		return ruaEndereco;
+	public String getCep() {
+		return cep;
 	}
 
-	public void setRuaEndereco(String ruaEndereco) {
-		this.ruaEndereco = ruaEndereco;
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
 
-	public Integer getNumeroendereco() {
-		return numeroendereco;
+	public Integer getNumero() {
+		return numero;
 	}
 
-	public void setNumeroendereco(Integer numeroendereco) {
-		this.numeroendereco = numeroendereco;
+	public void setNumero(Integer numero) {
+		this.numero = numero;
 	}
 
-	public String getBairroEndereco() {
-		return bairroEndereco;
+	public String getLogradouro() {
+		return logradouro;
 	}
 
-	public void setBairroEndereco(String bairroEndereco) {
-		this.bairroEndereco = bairroEndereco;
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
 
-	public String getCidadeEndereco() {
-		return cidadeEndereco;
+	public String getComplemento() {
+		return complemento;
 	}
 
-	public void setCidadeEndereco(String cidadeEndereco) {
-		this.cidadeEndereco = cidadeEndereco;
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 
-	public String getEstadoEndereco() {
-		return estadoEndereco;
+	public String getBairro() {
+		return bairro;
 	}
 
-	public void setEstadoEndereco(String estadoEndereco) {
-		this.estadoEndereco = estadoEndereco;
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
 	}
 
-	public Integer getCEPEndereco() {
-		return CEPEndereco;
+	public String getLocalidade() {
+		return localidade;
 	}
 
-	public void setCEPEndereco(Integer cEPEndereco) {
-		CEPEndereco = cEPEndereco;
+	public void setLocalidade(String localidade) {
+		this.localidade = localidade;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+	public String getIbge() {
+		return ibge;
+	}
+
+	public void setIbge(String ibge) {
+		this.ibge = ibge;
+	}
+
+	public String getGia() {
+		return gia;
+	}
+
+	public void setGia(String gia) {
+		this.gia = gia;
+	}
+
+	public String getDdd() {
+		return ddd;
+	}
+
+	public void setDdd(String ddd) {
+		this.ddd = ddd;
+	}
+
+	public String getSiafi() {
+		return siafi;
+	}
+
+	public void setSiafi(String siafi) {
+		this.siafi = siafi;
 	}
 
 	public UsuarioEntity getUsuarioEntity() {
@@ -119,4 +174,6 @@ public class EnderecoEntity {
 		this.usuarioEntity = usuarioEntity;
 	}
 
+	
+	
 }
