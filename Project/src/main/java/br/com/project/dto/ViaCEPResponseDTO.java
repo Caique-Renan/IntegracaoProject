@@ -1,8 +1,8 @@
 package br.com.project.dto;
 
-public class EnderecoDTO {
+public class ViaCEPResponseDTO {
 
-	private Long idEndereco;
+	private Long idUsuario;
 
 	private String cep;
 
@@ -24,22 +24,12 @@ public class EnderecoDTO {
 
 	private String siafi;
 
-	private UsuarioDTO usuarioDTO;
-
-	@Override
-	public String toString() {
-		return String.format(
-				"EnderecoDTO [idEndereco=%s, cep=%s, logradouro=%s, complemento=%s, bairro=%s, "
-						+ "localidade=%s, uf=%s, ibge=%s, gia=%s, ddd=%s, siafi=%s, usuarioDTO=%s]",
-				idEndereco, cep, logradouro, complemento, bairro, localidade, uf, ibge, gia, ddd, siafi, usuarioDTO);
+	public Long getIdUsuario() {
+		return idUsuario;
 	}
 
-	public Long getIdEndereco() {
-		return idEndereco;
-	}
-
-	public void setIdEndereco(Long idEndereco) {
-		this.idEndereco = idEndereco;
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getCep() {
@@ -121,13 +111,8 @@ public class EnderecoDTO {
 	public void setSiafi(String siafi) {
 		this.siafi = siafi;
 	}
+	
+	
 
-	public UsuarioDTO getUsuarioDTO() {
-		return usuarioDTO;
-	}
-
-	public void setUsuarioDTO(UsuarioDTO usuarioDTO) {
-		this.usuarioDTO = usuarioDTO;
-	}
 
 }
